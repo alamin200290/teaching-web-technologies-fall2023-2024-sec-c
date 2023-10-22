@@ -1,3 +1,7 @@
+<?php 
+      include('../controller/sessionCheck.php'); session_start();
+?>
+
 <html lang="en">
 <head>
     <title>Create User</title>

@@ -1,3 +1,7 @@
+<?php 
+   include('../controller/sessionCheck.php');
+?>
+
 <html lang="en">
 <head>
     <title>View All Users</title>
