@@ -1,5 +1,7 @@
 <?php 
-   include('../controller/sessionCheck.php');
+   require_once('../controller/sessionCheck.php');
+   require_once('../model/userModel.php');
+   $users = getAllUser();
 ?>
 
 <html lang="en">
@@ -21,26 +23,20 @@
             <td>Password</td>
             <td>Action</td>
         </tr>
+
+<?php for($i=0; $i<count($users); $i++){ ?>
         <tr>
-            <td>1</td>
-            <td>ABC</td>
-            <td>abc@aiub.edu</td>
-            <td>123</td>
+            <td><?=$users[$i]['id']?></td>
+            <td><?=$users[$i]['username']?></td>
+            <td><?=$users[$i]['email']?></td>
+            <td><?=$users[$i]['password']?></td>
             <td>
-                <a href="edit_user.php?id=1"> EDIT </a> |
-                <a href="delete_user.php"> DELETE </a>
+                <a href="edit_user.php?id=<?=$users[$i]['id']?>"> EDIT </a> |
+                <a href="delete_user.php?id=<?=$users[$i]['id']?>"> DELETE </a>
             </td>
         </tr>
-        <tr>
-            <td>1</td>
-            <td>ABC</td>
-            <td>abc@aiub.edu</td>
-            <td>123</td>
-            <td>
-                <a href="edit_user.php?id=2"> EDIT </a> |
-                <a href="delete_user.php"> DELETE </a>
-            </td>
-        </tr>
+
+<?php } ?>
     </table>
 </body>
 </html>
